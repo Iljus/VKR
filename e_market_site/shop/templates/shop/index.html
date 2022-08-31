@@ -1,0 +1,25 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+<!--<h1> {{title}}</h1>-->
+<ul class="list-articles">
+    {% for p in product %}
+        <li>
+            <div class="article-panel">
+                <!-- Показываем Категорию товара -->
+	            <p class="first">Категория товара: {{p.category}}</p>
+            </div>
+
+            <!-- Прописываем фото -->
+            {% if p.image %}
+                <p><img class="img-article-left thumb" src="{{p.image.url}}"></p>
+            {% endif %}
+            <!-- Фото конец -->
+
+            <h2>{{p.name}}</h2>
+            <div class="clear"></div>
+            <p class="link-read-prod"><a href="{{ p.get_absolute_url }}">Cмотреть подробно</a></p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

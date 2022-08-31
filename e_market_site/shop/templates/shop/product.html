@@ -1,0 +1,11 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <h1>{{product.name}}</h1>
+
+    {% if product.image %}
+        <p><img class="img-article-left" src="{{product.image.url}}"></p>
+    {% endif %}
+
+    {{product.description}}
+{% endblock %}
